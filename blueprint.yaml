@@ -18,6 +18,10 @@ inputs:
     type: string
     default: "subnet-04b1589da0f453bf0,subnet-024c12ca933afee95"
     description: "Comma-separated list of subnet IDs"
+  agent:
+    type: string
+    default: "torque-agent-torqueagent02-dtvkcccjj"
+    description: "Torque execution agent to use"
 
 outputs:
   cluster_endpoint:
@@ -35,7 +39,9 @@ grains:
     spec:
       source:
         store: git
-        path: ./
+        path: "."
+      host:
+        name: '{{ .inputs.agent | default: "torque-agent-torqueagent02-dtvkcccjj" }}'
       inputs:
         - region: '{{ .inputs.region }}'
         - cluster_name: '{{ .inputs.cluster_name }}'
