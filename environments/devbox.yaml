@@ -1,0 +1,22 @@
+environment:
+  environment_name: eks-devbox
+  description: "Development sandbox EKS environment"
+  owner_email: yana@quali.com
+  state: active
+  labels:
+    environment: development
+    team: engineering
+    cost-center: dev
+    temporary: true
+  inputs:
+    region: us-east-1
+    cluster_name: yana-eks-devbox
+    vpc_id: vpc-066d45cb6f15cce6e
+    subnet_ids: "subnet-04b1589da0f453bf0,subnet-024c12ca933afee95"
+  outputs:
+    cluster_endpoint:
+      value: '{{ .grains.eks-cluster.outputs.cluster_endpoint }}'
+      quick: true
+    cluster_name:
+      value: '{{ .grains.eks-cluster.outputs.cluster_name }}'
+      quick: true
