@@ -38,7 +38,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: Quali-Torque-Assignment-EKS-
+        store: Quali_Torque_Assignment_EKS_
         path: .
       agent:
         name: torqueagent02
