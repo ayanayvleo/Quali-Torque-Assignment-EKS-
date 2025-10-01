@@ -12,15 +12,15 @@ inputs:
     description: "Name of the EKS cluster"
   vpc_id:
     type: string
-    default: vpc-066d45cb6f15cce6e
+    default: vpc-066d43cb6f15cce6e
     description: "VPC ID where cluster will be deployed"
   subnet_ids:
     type: string
-    default: "subnet-04b1589da0f453bf0,subnet-024c12ca933afee95"
+    default: "subnet-04b1589da0f453bf0,subnet-0bf18a6dd31e1ced8,subnet-0f1d5a7ff8ffaef40,subnet-0b7d40186a55da75e,subnet-027ce9c0f9e5c9a07"
     description: "Comma-separated list of subnet IDs"
   agent:
     type: string
-    default: "torque-agent-torqueagent02-dtvkcccjj"
+    default: "torqueagent02"
     description: "Torque execution agent to use"
 
 outputs:
@@ -38,10 +38,10 @@ grains:
     kind: terraform
     spec:
       source:
-        store: Quali-Torque-Assignment-EKS  # try without trailing dash
-        path: .  # path to the Terraform files in the root directory
-      host:
-        name: '{{ .inputs.agent | default: "torque-agent-torqueagent02-dtvkcccjj" }}'
+        store: Quali-Torque-Assignment-EKS-
+        path: .
+      agent:
+        name: torqueagent02
       inputs:
         - region: '{{ .inputs.region }}'
         - cluster_name: '{{ .inputs.cluster_name }}'
