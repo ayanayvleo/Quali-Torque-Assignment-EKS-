@@ -1,0 +1,16 @@
+apiVersion: qualitorque.io/v1
+kind: Blueprint
+metadata:
+  name: eks-demo-blueprint
+spec:
+  grains:
+    - name: eks-cluster
+      type: terraform
+      path: ./
+      inputs:
+        region: us-east-1
+        cluster_name: yana-eks-demo
+        vpc_id: vpc-xxxxxxx
+        subnet_ids:
+          - subnet-aaa111
+          - subnet-bbb222
