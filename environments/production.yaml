@@ -1,0 +1,18 @@
+apiVersion: qualitorque.io/v1
+kind: Environment
+metadata:
+  name: production
+  description: "Production EKS environment"
+spec:
+  blueprint: eks-demo-blueprint
+  inputs:
+    region: us-east-1
+    cluster_name: yana-eks-prod
+    vpc_id: vpc-066d45cb6f15cce6e
+    subnet_ids:
+      - subnet-04b1589da0f453bf0
+      - subnet-024c12ca933afee95
+  tags:
+    - environment: production
+    - team: platform
+    - cost-center: ops
