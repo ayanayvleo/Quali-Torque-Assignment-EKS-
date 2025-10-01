@@ -39,7 +39,7 @@ grains:
     spec:
       source:
         store: git
-        path: ./eks
+        path: ./
       host:
         name: '{{ .inputs.agent | default: "torque-agent-torqueagent02-dtvkcccjj" }}'
       inputs:
