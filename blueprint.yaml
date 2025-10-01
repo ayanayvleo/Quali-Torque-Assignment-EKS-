@@ -1,34 +1,40 @@
-spec_version: 2
+spec_version: "2.0"
 description: "EKS cluster deployment blueprint"
 
 inputs:
   region:
     type: string
     default: us-east-1
+    description: "AWS region for deployment"
   cluster_name:
     type: string
     default: yana-eks-demo
+    description: "Name of the EKS cluster"
   vpc_id:
     type: string
     default: vpc-066d45cb6f15cce6e
+    description: "VPC ID where cluster will be deployed"
   subnet_ids:
     type: string
     default: "subnet-04b1589da0f453bf0,subnet-024c12ca933afee95"
+    description: "Comma-separated list of subnet IDs"
 
 outputs:
   cluster_endpoint:
-    value: '{{ .grains.eks-cluster.outputs.cluster_endpoint }}'
+    value: '{{ .grains.eks_cluster.outputs.cluster_endpoint }}'
+    kind: string
     quick: true
   cluster_name:
-    value: '{{ .grains.eks-cluster.outputs.cluster_name }}'
+    value: '{{ .grains.eks_cluster.outputs.cluster_name }}'
+    kind: string
     quick: true
 
 grains:
-  eks-cluster:
+  eks_cluster:
     kind: terraform
     spec:
       source:
-        store: github
+        store: git
         path: ./
       inputs:
         - region: '{{ .inputs.region }}'
