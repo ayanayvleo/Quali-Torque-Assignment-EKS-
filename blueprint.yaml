@@ -38,7 +38,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: IaC-Presentation  # the connected Git repository name
+        store: Quali-Torque-Assignment-EKS-  # the connected Git repository name
         path: .  # path to the Terraform files in the root directory
       host:
         name: '{{ .inputs.agent | default: "torque-agent-torqueagent02-dtvkcccjj" }}'
