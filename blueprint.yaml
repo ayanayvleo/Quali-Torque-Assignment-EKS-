@@ -38,7 +38,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: Quali-Torque-Assignment-EKS-  # the connected Git repository name
+        store: Quali-Torque-Assignment-EKS  # try without trailing dash
         path: .  # path to the Terraform files in the root directory
       host:
         name: '{{ .inputs.agent | default: "torque-agent-torqueagent02-dtvkcccjj" }}'
