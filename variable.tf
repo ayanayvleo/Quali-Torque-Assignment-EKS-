@@ -19,3 +19,4 @@ variable "subnet_ids" {
   description = "Subnet IDs for worker nodes"
   type        = list(string)
 }
+
